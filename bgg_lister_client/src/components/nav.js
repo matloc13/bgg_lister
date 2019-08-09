@@ -1,16 +1,22 @@
 import React from 'react'
 
 const Nav = (props) => {
+  const { user, toggle,} = props
+
   return (
     <nav>
       <span onClick={() => {
-        props.toggle()
+        toggle()
       }}>
         menu
       </span>
-      <span>
-        user
-      </span>
+      {
+        user &&
+        <span>
+          {user.username}
+        </span>
+      }
+
 
     </nav>
   )

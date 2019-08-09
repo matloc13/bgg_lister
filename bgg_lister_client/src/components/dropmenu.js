@@ -6,8 +6,12 @@ const DropMenu = () => {
       <span>
         solitaire
       </span>
-      <span>hot list</span>
-      <span>my lists</span>
+      <span>
+        hot list
+      </span>
+      <span>
+        my lists
+      </span>
     </div>
   )
 }

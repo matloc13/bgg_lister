@@ -17,9 +17,7 @@ const Main = (props) => {
         </>
       )
     })
-  }
-
-</main>
+  }</main>
   )
 }
 
