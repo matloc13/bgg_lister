@@ -14,7 +14,6 @@ function App() {
   const [user, setUser] = useState()
   const [hotlist, setHotlist] = useState([])
   const [dropMenuShow, setDropMenuShow] = useState(false)
-  const [favList, setFavList] = useState()
 
   useEffect(() => {
         console.log('did load');
@@ -100,8 +99,6 @@ function App() {
             render={(props) =>
               <HotList {...props}
                 hotlist={hotlist}
-                setFavList={setFavList}
-                favList={favList}
               />}
           />
 

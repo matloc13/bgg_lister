@@ -2,6 +2,7 @@ import React, { useState, useEffect,} from 'react'
 import { BASE_URL } from '../constants'
 import { Link } from 'react-router-dom';
 import ListForm from './listform';
+import ListTitle from './listtitle'
 import List from './list'
 
 // props
@@ -11,6 +12,7 @@ const Lists = (props) => {
 // state
   const [showForm, setShowForm] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
+  const [showUpdate, setShowUpdate] = useState(false)
   const [list, setList] = useState([])
   const [slist, setSlist] = useState({})
 
@@ -99,33 +101,42 @@ const Lists = (props) => {
   <div className={"listContainer"}>
     {  list && list.map((ele) => {
       return (
-        <div key={ele.id}>
-          <h3>{ele.title}</h3>
-          <span
-            onClick={() => {
-              setShowEdit(!showEdit)
-            }}>{
-              showEdit ? 'close':'edit'}
-          </span>
-          {
-            showEdit &&
-            <>
-              <span onClick={() => {
-                setSlist(ele)
-              }}>
-              update</span>
 
-              <span onClick={() => {
-                deleteList(ele, uid, ele.id)
-              }}>
-              X</span>
-            </>
-          }
-        </div>
+        <ListTitle
+          uid={uid}
+          list={ele}
+          slist={slist}
+          lid={ele.id}
+          title={ele.title}
+          setShowEdit={setShowEdit}
+          showEdit={showEdit}
+          setSlist={setSlist}
+          setShowUpdate={setShowUpdate}
+          showUpdate={showUpdate}
+          deleteList={deleteList}
+          updateList={updateList}
+
+
+        />
+
       )
+
     })
     }
-  </div>
+    {
+      showUpdate &&
+      <>
+        <ListForm
+          list={slist}
+          handleSubmit={updateList}
+        />
+        <span onClick={() => {
+          setShowUpdate(!showUpdate)
+        }}
+        >close</span>
+      </>
+        }
+      </div>
 
 </>
   )

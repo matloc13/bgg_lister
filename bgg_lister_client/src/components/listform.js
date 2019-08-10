@@ -3,9 +3,8 @@ import Input from './input';
 
 const ListForm = (props) => {
 
-  const { handleSubmit, uid, lid, list } = props
+  const { handleSubmit, uid, list, } = props
 
-  const [formType, setFormType] = useState()
   const [input, setInput] = useState({title: ''})
 
   useEffect(() => {
@@ -49,7 +48,7 @@ const ListForm = (props) => {
 
           <Input
             type={"submit"}
-            value={"create"}
+            value={list ? "update" : "create"}
           />
 
         </fieldset>
