@@ -5,7 +5,7 @@ const DropMenu = () => {
   return (
     <div>
       <span>
-        <Link to="/solo">
+        <Link to="/matlocsolo">
           solitaire
         </Link>
       </span>

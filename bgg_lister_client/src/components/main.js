@@ -1,23 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect, } from 'react'
 import Game from './game'
 
-const Main = (props) => {
+const Main = () => {
 
-  const {games,} = props
+    const [games, setGames] = useState()
+
+  useEffect(() => {
+    getSolitaireList()
+  },[])
+
+  const getSolitaireList = () => {
+    fetch(`/bgg_lists`)
+    .then(res => res.json())
+    .then(json => setGames(json))
+    .catch(err => console.error(err))
+  }
+
 
   return (
 <main>
+  <h2>matloc's solo picks</h2>
   {
     games &&
     games.geeklist.item.map((ele, index) => {
       return (
-        <>
+        <article  key={index}>
           <Game
             name={ele.objectname}
             lookup={ele.objectid}
-            index={index}
           />
-        </>
+        </article>
       )
     })
   }</main>

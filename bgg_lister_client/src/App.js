@@ -5,7 +5,7 @@ import Nav from './components/nav'
 import DropMenu from './components/dropmenu'
 import Main from './components/main'
 import HotList from './components/hotlist';
-import List from './components/list'
+import Lists from './components/lists'
 import Footer from './components/footer'
 import './css/main.css'
 
@@ -13,14 +13,13 @@ function App() {
 
   const [user, setUser] = useState()
   const [hotlist, setHotlist] = useState([])
-  // const [games, setGames] = useState() for solitaire list and main component
   const [dropMenuShow, setDropMenuShow] = useState(false)
   const [favList, setFavList] = useState()
 
   useEffect(() => {
         console.log('did load');
     getUser(2)
-    // getSolitaireList() solitaire request in Main component
+
     getHotList()
     return () => {
       console.log('clear hot list');
@@ -49,15 +48,8 @@ function App() {
     .catch(err => console.error(err))
   }
 
-  // fetch for Main Component
 
-  // const getSolitaireList = () => {
-  //   fetch(`/bgg_lists`)
-  //   .then(res => res.json())
-  //   .then(json => setGames(json))
-  //   .catch(err => console.error(err))
-  // }
-  //
+
 
   // const handleSubmitToList = (gameInfo, uid, lid) => {
   //   // console.log(gameInfo.bggid)
@@ -94,10 +86,14 @@ function App() {
         }
 
         <Switch>
-          {/* <Main for displaying solitaire list temp removed
-            games={games}
-          /> */}
 
+
+
+          <Route
+            path="/matlocsolo"
+            render={(props) =>
+              <Main />}
+          />
 
           <Route
             path="/" exact
@@ -112,7 +108,7 @@ function App() {
           <Route
             path="/myLists"
             render={(props) =>
-              <List {...props}
+              <Lists {...props}
                 uid={'2'}
               />}
           />

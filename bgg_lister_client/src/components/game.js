@@ -16,17 +16,17 @@ const Game = (props) => {
   }
 
   return (
-    <article key={props.index}>
+    <>
       <p onClick={() => { searchGame(props.lookup)}}
       >{props.name}</p>
-      <p>{props.lookup}</p>
+      {/* <p>{props.lookup}</p> */}
       {
         currentGame ?
           <img src={currentGame.items.item.thumbnail} alt={props.name}/>
         :''
       }
       <hr/>
-    </article>
+    </>
   )
 }
 

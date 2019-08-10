@@ -24,7 +24,7 @@ const ListForm = (props) => {
     if (list) {
       fi.id = list.id
     }
-    handleSubmit(event, fi, uid, lid)
+    handleSubmit(event, fi, uid, fi.id)
     setInput({
       title: ''
     })
