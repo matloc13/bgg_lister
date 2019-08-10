@@ -1,16 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const DropMenu = () => {
   return (
     <div>
       <span>
-        solitaire
+        <Link to="/solo">
+          solitaire
+        </Link>
       </span>
       <span>
-        hot list
+        <Link to="/">
+          hot list
+        </Link>
       </span>
       <span>
-        my lists
+        <Link to="/myLists">
+          my lists
+        </Link>
       </span>
     </div>
   )

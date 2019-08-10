@@ -1,4 +1,5 @@
 import React, { useState, useEffect,} from 'react'
+import { BASE_URL } from '../constants'
 
 const Game = (props) => {
 
@@ -9,7 +10,7 @@ const Game = (props) => {
   },[])
 
   const searchGame = (id) => {
-    fetch(`/bgg_lists/${id}`)
+    fetch(`${BASE_URL}/bgg_lists/${id}`)
     .then(res => res.json())
     .then(json => setCurrentGame(json))
   }

@@ -2,11 +2,14 @@ import React from 'react'
 import Game from './game'
 
 const Main = (props) => {
+
+  const {games,} = props
+
   return (
 <main>
   {
-    props.games &&
-    props.games.geeklist.item.map((ele, index) => {
+    games &&
+    games.geeklist.item.map((ele, index) => {
       return (
         <>
           <Game
